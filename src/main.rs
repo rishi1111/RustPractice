@@ -1,4 +1,4 @@
-// mod datatypes;
+mod practice;
 
 use core::num::ParseIntError;
 use rand::{thread_rng, Rng};
@@ -17,7 +17,8 @@ fn user_input() -> Result<u32, ParseIntError> {
         Err(e) => Err(e),
     }
 }
-fn main() {
+
+fn guessing(){
     println!("Guess the number!");
 
     loop {
@@ -40,4 +41,11 @@ fn main() {
             }
         }
     }
+}
+fn main() {
+    practice::c_to_f(30.0);
+    practice::f_to_c(98.6);
+    let fb = practice::fibbonacci(9);
+    println!("{fb}");
+    practice::twelve_days_of_xmas();
 }
