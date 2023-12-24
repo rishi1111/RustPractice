@@ -12,7 +12,7 @@ fn user_input() -> Result<u32, ParseIntError> {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    match guess.trim().parse() {
+    return match guess.trim().parse() {
         Ok(num) => Ok(num),
         Err(e) => Err(e),
     }
@@ -22,7 +22,8 @@ fn main() {
 
     loop {
         let current: u32 = thread_rng().gen_range(0..11);
-        match user_input() {
+        let res: Result<u32, ParseIntError> = user_input();
+        match res {
             Ok(guess) => {
                 match guess.cmp(&current) {
                     Ordering::Less => println!("Aim Higher!"),
